@@ -28,3 +28,10 @@ module "database" {
   earg_loc =  module.resource_group.earg_loc
   
 }
+
+module "bastion" {
+  source          = "./modules/bastion"
+  earg_name       = module.resource_group.earg_name
+  earg_loc        = module.resource_group.earg_loc
+  earg_subnet_id1 = module.virtual_network.earg_subnet_id1
+}
